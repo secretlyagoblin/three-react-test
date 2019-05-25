@@ -8,7 +8,7 @@ export class Rotate extends Monobehaviour{
     }
 
     update(){
-        this.three.rotation.x += 0.01;
-        this.three.rotation.y += 0.01;
+        this.three.rotation.x += 0.1*this.gameObject.scene.deltaTime;
+        this.three.rotation.y += 0.1*this.gameObject.scene.deltaTime;
     }
 }

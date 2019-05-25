@@ -20,7 +20,7 @@ export class CubeScene extends AbstractScene{
         });
 
         for(var x = 0;x <20; x++){
-            var cube = new GameObject(new THREE.Mesh(geometry,material),"Cube");
+            var cube = new GameObject(new THREE.Mesh(geometry,material),"Cube",this);
             cube.obj.position.add(new THREE.Vector3(
                 Math.random()*20-10,
                 Math.random()*10-5,

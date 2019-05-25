@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { Scene } from 'three';
 
 export class AbstractScene{
 
@@ -9,6 +10,9 @@ export class AbstractScene{
     camera:THREE.PerspectiveCamera;
     scene:THREE.Scene;
     renderer:THREE.Renderer;
+
+    deltaTime:number = 0;
+    private clock:THREE.Clock = new THREE.Clock();
 
     gameObjects:GameObject[] = [];
 
@@ -40,6 +44,7 @@ export class AbstractScene{
     };
 
     start(){
+        this.clock.start();
         this.gameObjects.forEach(x => x.cycle());
         window.addEventListener('resize', this.handleWindowResize);
     }
@@ -54,6 +59,8 @@ export class AbstractScene{
     };
 
     update(){
+
+        this.deltaTime = this.clock.getDelta();
         this.gameObjects.forEach(x => x.cycle());
 
         this.renderer.render( this.scene, this.camera );
@@ -96,12 +103,14 @@ export class GameObject{
 
     name:string = "";
     obj:THREE.Object3D;
+    scene:AbstractScene;
     private monobehaviours:Monobehaviour[] = [];
     private state:GameObjectState;
 
-    constructor(obj:THREE.Object3D, name:string){
+    constructor(obj:THREE.Object3D, name:string, scene:AbstractScene){
         this.obj = obj;        
         this.name = name;
+        this.scene = scene;
     }
 
     cycle(){
