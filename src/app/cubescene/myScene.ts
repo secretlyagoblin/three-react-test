@@ -1,10 +1,10 @@
 import * as THREE from 'three';
-import {AbstractScene, GameObject, Monobehaviour} from './scene';
+import {Scene, GameObject, Monobehaviour} from '../webunity/webunity';
 import {Rotate} from './monobehaviours';
 import {OrbitControls} from "three/examples/jsm/controls/OrbitControls";
 import { Object3D } from 'three';
 
-export class CubeScene extends AbstractScene{
+export class CubeScene extends Scene{
     
     controls:OrbitControls;
 

@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import * as THREE from 'three';
 import {OrbitControls} from "three/examples/jsm/controls/OrbitControls";
-import {CubeScene} from "./myScene";
-import {AbstractScene} from "./scene";
+import {CubeScene} from "./cubescene/myScene";
+import {Scene} from "./webunity/webunity";
 
 const style = {
     height: 500 // we can control scene size by setting container dimensions
@@ -15,7 +15,7 @@ class App extends Component {
 
   mount:any;
 
-  scene:AbstractScene;
+  scene:Scene;
 
     componentDidMount() {
         this.scene.preStart();

@@ -1,4 +1,4 @@
-import {AbstractScene, GameObject, Monobehaviour} from './scene'
+import {Scene, GameObject, Monobehaviour} from '../webunity/webunity'
 
 export class Rotate extends Monobehaviour{
 

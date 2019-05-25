@@ -1,7 +1,6 @@
 import * as THREE from 'three';
-import { Scene } from 'three';
 
-export class AbstractScene{
+export class Scene{
 
     mount:any;
     requestId:number = 0;
@@ -103,11 +102,11 @@ export class GameObject{
 
     name:string = "";
     obj:THREE.Object3D;
-    scene:AbstractScene;
+    scene:Scene;
     private monobehaviours:Monobehaviour[] = [];
     private state:GameObjectState;
 
-    constructor(obj:THREE.Object3D, name:string, scene:AbstractScene){
+    constructor(obj:THREE.Object3D, name:string, scene:Scene){
         this.obj = obj;        
         this.name = name;
         this.scene = scene;
